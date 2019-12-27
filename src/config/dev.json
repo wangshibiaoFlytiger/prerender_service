@@ -1,8 +1,8 @@
 {
   "service": {
     "title": "front",
-    "apiPrefix": "http://localhost:8080",
-    "port": 8080
+    "apiPrefix": "http://localhost:8082",
+    "port": 8082
   },
   "mongo":{
     "uri": "mongodb://localhost:27017/miguo"

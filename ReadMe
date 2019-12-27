@@ -1,50 +1,7 @@
-项目原始仓库地址: https://github.com/wangshibiaoFlytiger/node_scaffold
+项目原始仓库地址: https://github.com/wangshibiaoFlytiger/prerender_service
 #若本项目给您带来收获, 还请您动动小拇指,右上角给点个赞哈,万分感谢哈哈!!!
 
-nodejs api接口项目开发脚手架
+本项目基于nodejs api接口项目开发脚手架构建(https://github.com/wangshibiaoFlytiger/node_scaffold)
+主要用来验证预渲染服务(基于https://github.com/prerender/prerender)的效果
 
-一. 命令详解
-1. buildToEs5
-yarn buildToEs5, 用于将工程转为es5标准的代码
-2. pkg
-yarn pkg, 将工程打包为独立的可执行文件
-3. runPkg
-运行独立的可执行文件
-4. dev
-调试或运行工程代码, 且支持es6的import和export语法
-
-二. 打包应用为独立的可执行程序
-1. npm install pkg
-2. 编辑package.json
-参考文档
-3. 打包
-yarn pkg
-4. 运行
-export NODE_ENV=pro
-./dist/node_scaffold
-
-注意事项：package.json需要增加如下配置, 否则若require的为node_modules下的依赖库, 会出现类似错误提示：Cannot find module 'config'
-  "pkg": {
-    "assets": [
-      ""
-    ]
-  }
-
-三. 配置支持ES6 import和export语法
-yarn add babel-cli babel-preset-es2015
-创建文件.babelrc
-设置环境变量: export NODE_ENV=pro
-babel-node ./app.js
-
-四. config库的使用
-默认config目录在项目根目录, 若想修改config目录位置, 需要配置环境变量NODE_CONFIG_DIR, 如NODE_CONFIG_DIR=/data/workspace/github/javascript/private/node_scaffold/src/config
-通过实践可知, config库无法加载"打入可执行文件的配置文件", 所以无需将配置文件打入可执行文件,且配置文件需要额外部署
-
-五. 集成web框架koa
-yarn add koa
-安装路由中间件
-yarn add @koa/router
-
-六. 支持读取request body参数
-选用koa-body中间件, 通过实际使用发现, 不能直接用于全局, 可按需用于指定接口
-如app.use(koaBody())会导致路由功能无法使用, 而router.post("/game/addGameData", koaBody(), addGameData);可以生效
+目前存在的问题: koa-prerender代理服务没有验证通过
